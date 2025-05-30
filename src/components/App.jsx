@@ -1,85 +1,71 @@
-import '../styles/App.scss';
-import '../images/icons/github.svg';
-import iconLaptop  from'../images/laptop-code-solid.svg';
-import logoAdalab from '../images/adalab.png';
-import { useState } from 'react';
-import Header from './Header';
-import Hero from './Hero';
-import Preview from './preview/Preview';
-import Card from './preview/Card';
-import Form from './Form/Form';
-import Footer from './Footer';
+import "../styles/App.scss";
+import "../images/icons/github.svg";
+import iconLaptop from "../images/laptop-code-solid.svg";
+import logoAdalab from "../images/adalab.png";
+import { useState } from "react";
+import Header from "./Header";
+import Hero from "./Hero";
+import Preview from "./preview/Preview";
+import Card from "./preview/Card";
+import Form from "./Form/Form";
+import Footer from "./Footer";
 
 function App() {
-  const [proyect, setProyect] = useState ('');
-  const [slogan, setSlogan] = useState ('');
-  const [repository, setRepo] = useState ('');
-  const [demo, setDemo] = useState ('');
-  const [technologies, setTecnoligies] = useState ('');
-  const [description, setDescription] = useState ('');
-  const [nameAuthor, setNameAuthor] = useState ('');
-  const [work, setWork] = useState ('');
+  const [proyect, setProyect] = useState("");
+  const [slogan, setSlogan] = useState("");
+  const [repository, setRepo] = useState("");
+  const [demo, setDemo] = useState("");
+  const [technologies, setTecnoligies] = useState("");
+  const [description, setDescription] = useState("");
+  const [nameAuthor, setNameAuthor] = useState("");
+  const [work, setWork] = useState("");
 
-  const handleInputproyect= (ev) =>{
-    console.log (ev.target.value);
-    setProyect(ev.target.value);
-  }
-
-  const handleInputSlogan= (ev) =>{
-    console.log (ev.target.value);
-    setSlogan(ev.target.value);
-  }
-  
-  const handleInputRepo= (ev) =>{
-    console.log (ev.target.value);
-    setRepo(ev.target.value);
-  }
-
-  const handleInputDemo= (ev) =>{
-    console.log (ev.target.value);
-    setDemo(ev.target.value);
-  }
-  
-  const handleInputTecnologies= (ev) =>{
-    console.log (ev.target.value);
-    setTecnoligies(ev.target.value);
-  }
-
-  const handleInputDescription= (ev) =>{
-    console.log (ev.target.value);
-    setDescription(ev.target.value);
-  }
-
-  const handleInputNameAuthor= (ev) =>{
-    console.log (ev.target.value);
-    setNameAuthor(ev.target.value);
-  }
-
-  const handleInputWork= (ev) =>{
-    console.log (ev.target.value);
-    setWork(ev.target.value);
-  }
-
-
+  const changeToAnotherState = (field, value) => {
+    console.log(field, value);
+    if (field === "name") {
+      setProyect(value);
+    } else if (field === "slogan") {
+      setSlogan(value);
+    } else if (field === "repo") {
+      setRepo(value);
+    } else if (field === "demo") {
+      setDemo(value);
+    } else if (field === "technologies") {
+      setTecnoligies(value);
+    } else if (field === "desc") {
+      setDescription(value);
+    } else if (field === "autor") {
+      setNameAuthor(value);
+    } else if (field === "job") {
+      setWork(value);
+    }
+  };
 
   return (
     <div className="container">
+      <Header iconLaptop={iconLaptop} logoAdalab={logoAdalab} />
 
-   <Header iconLaptop={iconLaptop} logoAdalab={logoAdalab} />
-    
-    <main className="main">
-      <Hero/>
+      <main className="main">
+        <Hero />
 
-      <section className="preview">
-        <Preview/>
-        <Card work={work} nameAuthor={nameAuthor} proyect={proyect} slogan={slogan} repository={repository} description={description} technologies={technologies} demo={demo}/>
-      </section>
+        <section className="preview">
+          <Preview changeToAnotherState={changeToAnotherState} />
+          <Card
+            work={work}
+            nameAuthor={nameAuthor}
+            proyect={proyect}
+            slogan={slogan}
+            repository={repository}
+            description={description}
+            technologies={technologies}
+            demo={demo}
+          />
+        </section>
 
-    <Form handleInputproyect={handleInputproyect} handleInputSlogan={handleInputSlogan} handleInputRepo={handleInputRepo} handleInputDemo={handleInputDemo} handleInputTecnologies={handleInputTecnologies} handleInputDescription={handleInputDescription} handleInputNameAuthor={handleInputNameAuthor} handleInputWork={handleInputWork}  />
-      
-    </main>
-    <Footer logoAdalab={logoAdalab} />
-  </div>
+        <Form changeToAnotherState={changeToAnotherState} />
+      </main>
+      <Footer logoAdalab={logoAdalab} />
+    </div>
   );
 }
 
