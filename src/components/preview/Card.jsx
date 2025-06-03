@@ -32,6 +32,7 @@ function Card(props) {
           <a
             className="icon icon__www"
             href={"https://" + props.demo}
+            target="_blank"
             title="Haz click para ver el proyecto online"
           >
             {props.demo || "Web link"}
@@ -39,6 +40,7 @@ function Card(props) {
           <a
             className="icon icon__github"
             href={"https://github.com"}
+            target="_blank"
             title="Haz click para ver el código del proyecto"
           >
             GitHub link
