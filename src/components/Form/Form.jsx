@@ -1,9 +1,9 @@
 function Form(props) {
   const handleInput = (ev) => {
-    const field = ev.target.id;
+    const formData = ev.target.id;
     const value = ev.target.value;
 
-    props.changeToAnotherState(field, value);
+    props.changeToAnotherState(formData, value);
   };
 
   return (
