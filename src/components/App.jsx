@@ -11,33 +11,44 @@ import Form from "./Form/Form";
 import Footer from "./Footer";
 
 function App() {
-  const [proyect, setProyect] = useState("");
+  /*const [proyect, setProyect] = useState("");
   const [slogan, setSlogan] = useState("");
   const [repository, setRepo] = useState("");
   const [demo, setDemo] = useState("");
   const [technologies, setTecnoligies] = useState("");
   const [description, setDescription] = useState("");
   const [nameAuthor, setNameAuthor] = useState("");
-  const [work, setWork] = useState("");
+  const [work, setWork] = useState("");*/
+
+  const [formData, setFormData] = useState ({
+    proyect:"",
+    slogan:"",
+    repository:"",
+    demo:"",
+    technologies:"",
+    description:"",
+    nameAuthor:"",
+    work:"",
+  })
 
   const changeToAnotherState = (field, value) => {
     console.log(field, value);
-    if (field === "name") {
-      setProyect(value);
+    if (field === "proyect") {
+    setFormData(value);
     } else if (field === "slogan") {
-      setSlogan(value);
+      setFormData(value);
     } else if (field === "repo") {
-      setRepo(value);
+      setFormData(value);
     } else if (field === "demo") {
-      setDemo(value);
+      setFormData(value);
     } else if (field === "technologies") {
-      setTecnoligies(value);
+      setFormData(value);
     } else if (field === "desc") {
-      setDescription(value);
+      setFormData(value);
     } else if (field === "autor") {
-      setNameAuthor(value);
+      setFormData(value);
     } else if (field === "job") {
-      setWork(value);
+      setFormData(value);
     }
   };
 
@@ -51,14 +62,14 @@ function App() {
         <section className="preview">
           <Preview changeToAnotherState={changeToAnotherState} />
           <Card
-            work={work}
-            nameAuthor={nameAuthor}
-            proyect={proyect}
-            slogan={slogan}
-            repository={repository}
-            description={description}
-            technologies={technologies}
-            demo={demo}
+            work={formData.work}
+            nameAuthor={formData.nameAuthor}
+            proyect={formData.proyect}
+            slogan={formData.slogan}
+            repository={formData.repository}
+            description={formData.description}
+            technologies={formData.technologies}
+            demo={formData.demo}
           />
         </section>
 
