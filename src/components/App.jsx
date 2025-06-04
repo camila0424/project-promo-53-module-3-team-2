@@ -20,18 +20,18 @@ function App() {
   const [nameAuthor, setNameAuthor] = useState("");
   const [work, setWork] = useState("");*/
 
-  const [formData, setFormData] = useState ({
-    proyect:"",
-    slogan:"",
-    repository:"",
-    demo:"",
-    technologies:"",
-    description:"",
-    nameAuthor:"",
-    work:"",
-  })
+  const [formData, setFormData] = useState({
+    proyect: "",
+    slogan: "",
+    repository: "",
+    demo: "",
+    technologies: "",
+    description: "",
+    nameAuthor: "",
+    work: "",
+  });
 
-  const changeToAnotherState = (field, value) => {
+  /*   const changeToAnotherState = (field, value) => {
     console.log(field, value);
     if (field === "proyect") {
     setFormData(value);
@@ -49,6 +49,26 @@ function App() {
       setFormData(value);
     } else if (field === "job") {
       setFormData(value);
+    }
+  }; */
+  const changeToAnotherState = (field, value) => {
+    const fieldMap = {
+      name: "proyect",
+      slogan: "slogan",
+      repo: "repository",
+      demo: "demo",
+      technologies: "technologies",
+      desc: "description",
+      autor: "nameAuthor",
+      job: "work",
+    };
+
+    const key = fieldMap[field];
+    if (key) {
+      setFormData({
+        ...formData,
+        [key]: value,
+      });
     }
   };
 
