@@ -11,15 +11,6 @@ import Form from "./Form/Form";
 import Footer from "./Footer";
 
 function App() {
-  /*const [proyect, setProyect] = useState("");
-  const [slogan, setSlogan] = useState("");
-  const [repository, setRepo] = useState("");
-  const [demo, setDemo] = useState("");
-  const [technologies, setTecnoligies] = useState("");
-  const [description, setDescription] = useState("");
-  const [nameAuthor, setNameAuthor] = useState("");
-  const [work, setWork] = useState("");*/
-
   const [formData, setFormData] = useState({
     proyect: "",
     slogan: "",
@@ -31,26 +22,6 @@ function App() {
     work: "",
   });
 
-  /*   const changeToAnotherState = (field, value) => {
-    console.log(field, value);
-    if (field === "proyect") {
-    setFormData(value);
-    } else if (field === "slogan") {
-      setFormData(value);
-    } else if (field === "repo") {
-      setFormData(value);
-    } else if (field === "demo") {
-      setFormData(value);
-    } else if (field === "technologies") {
-      setFormData(value);
-    } else if (field === "desc") {
-      setFormData(value);
-    } else if (field === "autor") {
-      setFormData(value);
-    } else if (field === "job") {
-      setFormData(value);
-    }
-  }; */
   const changeToAnotherState = (field, value) => {
     const fieldMap = {
       name: "proyect",
@@ -71,6 +42,15 @@ function App() {
       });
     }
   };
+  fetch ("https://dev.adalab.es/api/projectCard/",{
+   method : "POST",
+   headers: {"Content-Type" : "application/json"},
+   body: JSON.stringify () 
+  })
+  .then(res => res.json())
+  .then(dataResponse => {
+    console.log(dataResponse);
+  });
 
   return (
     <div className="container">
