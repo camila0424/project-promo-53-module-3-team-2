@@ -42,15 +42,20 @@ function App() {
       });
     }
   };
-  fetch ("https://dev.adalab.es/api/projectCard/",{
-   method : "POST",
-   headers: {"Content-Type" : "application/json"},
-   body: JSON.stringify () 
-  })
-  .then(res => res.json())
-  .then(dataResponse => {
-    console.log(dataResponse);
-  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handleSubmit");
+
+    fetch("https://dev.adalab.es/api/projectCard/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(),
+    })
+      .then((res) => res.json())
+      .then((dataResponse) => {
+        console.log(dataResponse);
+      });
+  };
 
   return (
     <div className="container">
@@ -73,7 +78,10 @@ function App() {
           />
         </section>
 
-        <Form changeToAnotherState={changeToAnotherState} />
+        <Form
+          changeToAnotherState={changeToAnotherState}
+          handleSubmit={handleSubmit}
+        />
       </main>
       <Footer logoAdalab={logoAdalab} />
     </div>
