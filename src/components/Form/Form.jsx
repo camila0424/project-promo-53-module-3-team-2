@@ -7,7 +7,7 @@ function Form(props) {
   };
 
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={props.handleSubmit}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -93,7 +93,7 @@ function Form(props) {
           Subir foto de la autora
           <input className="addForm__hidden" type="file" />
         </label>
-        <button type="submit" onSubmit={props.handleSubmit} className="button--large">Guardar proyecto</button>
+        <button type="submit" className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
   );

@@ -12,18 +12,21 @@ import Footer from "./Footer";
 
 function App() {
   const [formData, setFormData] = useState({
-    proyect: "",
+    name: "",
     slogan: "",
-    repository: "",
+    repo: "",
     demo: "",
     technologies: "",
-    description: "",
-    nameAuthor: "",
-    work: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: "https://placecats.com/millie/300/150",
+    photo: "https://placecats.com/millie/300/150"
+    
   });
 
   const changeToAnotherState = (field, value) => {
-    const fieldMap = {
+    /*const fieldMap = {
       name: "proyect",
       slogan: "slogan",
       repo: "repository",
@@ -34,11 +37,11 @@ function App() {
       job: "work",
     };
 
-    const key = fieldMap[field];
-    if (key) {
+    const key = fieldMap[field];*/
+    if (field) {
       setFormData({
         ...formData,
-        [key]: value,
+        [field]: value,
       });
     }
   };
@@ -49,7 +52,7 @@ function App() {
     fetch("https://dev.adalab.es/api/projectCard/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(),
+      body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((dataResponse) => {
@@ -67,12 +70,12 @@ function App() {
         <section className="preview">
           <Preview changeToAnotherState={changeToAnotherState} />
           <Card
-            work={formData.work}
-            nameAuthor={formData.nameAuthor}
-            proyect={formData.proyect}
+            job={formData.job}
+            autor={formData.autor}
+            name={formData.name}
             slogan={formData.slogan}
-            repository={formData.repository}
-            description={formData.description}
+            repo={formData.repo}
+            desc={formData.desc}
             technologies={formData.technologies}
             demo={formData.demo}
           />
