@@ -7,20 +7,20 @@ function Card(props) {
 
       <div className="card__author">
         <div className="card__authorPhoto"></div>
-        <p className="card__job">{props.work || "Full stack Developer"}</p>
+        <p className="card__job">{props.job || "Full stack Developer"}</p>
         <h3 className="card__name">
-          {props.nameAuthor || "Emmelie Bjôrklund"}
+          {props.autor || "Emmelie Bjôrklund"}
         </h3>
       </div>
 
       <div className="card__project">
-        <h3 className="card__name">{props.proyect || "Elegant Workspace"}</h3>
+        <h3 className="card__name">{props.name || "Elegant Workspace"}</h3>
         <p className="card__slogan">{props.slogan || "Diseños Exclusivos"}</p>
         <h3 className="card__descriptionTitle">
-          {props.repository || "Product description"}
+          Product description
         </h3>
         <p className="card__description">
-          {props.description ||
+          {props.desc ||
             "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione"}
         </p>
 
@@ -31,7 +31,7 @@ function Card(props) {
 
           <a
             className="icon icon__www"
-            href={"https://" + props.demo}
+            href={"https://" + props.repo}
             target="_blank"
             title="Haz click para ver el proyecto online"
           >
@@ -39,7 +39,7 @@ function Card(props) {
           </a>
           <a
             className="icon icon__github"
-            href={"https://github.com"}
+            href={props.demo}
             target="_blank"
             title="Haz click para ver el código del proyecto"
           >
