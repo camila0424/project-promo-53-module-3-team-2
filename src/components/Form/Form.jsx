@@ -1,3 +1,5 @@
+import PhotoButton from "../preview/PhotoButton";
+
 function Form(props) {
   const handleInput = (ev) => {
     const formData = ev.target.id;
@@ -85,15 +87,21 @@ function Form(props) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label className="button">
+        <PhotoButton text="Subir foto del proyecto" />
+        <PhotoButton text="Subir foto de la autora" />
+
+        {/* <label className="button">
           Subir foto del proyecto
           <input className="addForm__hidden" type="file" />
         </label>
         <label className="button">
           Subir foto de la autora
           <input className="addForm__hidden" type="file" />
-        </label>
-        <button type="submit" className="button--large">Guardar proyecto</button>
+        </label> */}
+
+        <button type="submit" className="button--large">
+          Guardar proyecto
+        </button>
       </fieldset>
     </form>
   );
