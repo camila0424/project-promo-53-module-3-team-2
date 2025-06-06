@@ -87,17 +87,14 @@ function Form(props) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <PhotoButton text="Subir foto del proyecto" />
-        <PhotoButton text="Subir foto de la autora" />
-
-        {/* <label className="button">
-          Subir foto del proyecto
-          <input className="addForm__hidden" type="file" />
-        </label>
-        <label className="button">
-          Subir foto de la autora
-          <input className="addForm__hidden" type="file" />
-        </label> */}
+        <PhotoButton
+          updateAvatar={props.changePhoto}
+          text="Subir foto del proyecto"
+        />
+        <PhotoButton
+          updateAvatar={props.changeImage}
+          text="Subir foto de la autora"
+        />
 
         <button type="submit" className="button--large">
           Guardar proyecto

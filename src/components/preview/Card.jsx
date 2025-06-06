@@ -6,19 +6,20 @@ function Card(props) {
       </h2>
 
       <div className="card__author">
-        <div className="card__authorPhoto"></div>
+        <div
+          className="card__authorPhoto"
+          style={{
+            backgroundImage: props.image ? `url(${props.image})` : null,
+          }}
+        ></div>
         <p className="card__job">{props.job || "Full stack Developer"}</p>
-        <h3 className="card__name">
-          {props.autor || "Emmelie Bjôrklund"}
-        </h3>
+        <h3 className="card__name">{props.autor || "Emmelie Bjôrklund"}</h3>
       </div>
 
       <div className="card__project">
         <h3 className="card__name">{props.name || "Elegant Workspace"}</h3>
         <p className="card__slogan">{props.slogan || "Diseños Exclusivos"}</p>
-        <h3 className="card__descriptionTitle">
-          Product description
-        </h3>
+        <h3 className="card__descriptionTitle">Product description</h3>
         <p className="card__description">
           {props.desc ||
             "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione"}

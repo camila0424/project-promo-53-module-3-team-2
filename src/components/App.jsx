@@ -6,7 +6,7 @@ import { useState } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
 import Preview from "./preview/Preview";
-import Card from "./preview/Card";
+
 import Form from "./Form/Form";
 import Footer from "./Footer";
 
@@ -20,24 +20,24 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    image: "https://placecats.com/millie/300/150",
-    photo: "https://placecats.com/millie/300/150"
-    
+    image: "",
+    photo: "",
   });
 
-  const changeToAnotherState = (field, value) => {
-    /*const fieldMap = {
-      name: "proyect",
-      slogan: "slogan",
-      repo: "repository",
-      demo: "demo",
-      technologies: "technologies",
-      desc: "description",
-      autor: "nameAuthor",
-      job: "work",
-    };
+  const changePhoto = (uploadedPhoto) => {
+    setFormData({
+      ...formData,
+      photo: uploadedPhoto,
+    });
+  };
 
-    const key = fieldMap[field];*/
+  const changeImage = (uploadedImage) => {
+    setFormData({
+      ...formData,
+      image: uploadedImage,
+    });
+  };
+  const changeToAnotherState = (field, value) => {
     if (field) {
       setFormData({
         ...formData,
@@ -67,23 +67,16 @@ function App() {
       <main className="main">
         <Hero />
 
-        <section className="preview">
-          <Preview changeToAnotherState={changeToAnotherState} />
-          <Card
-            job={formData.job}
-            autor={formData.autor}
-            name={formData.name}
-            slogan={formData.slogan}
-            repo={formData.repo}
-            desc={formData.desc}
-            technologies={formData.technologies}
-            demo={formData.demo}
-          />
-        </section>
+        <Preview
+          formData={formData}
+          changeToAnotherState={changeToAnotherState}
+        />
 
         <Form
           changeToAnotherState={changeToAnotherState}
           handleSubmit={handleSubmit}
+          changePhoto={changePhoto}
+          changeImage={changeImage}
         />
       </main>
       <Footer logoAdalab={logoAdalab} />
