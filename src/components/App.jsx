@@ -9,6 +9,7 @@ import Preview from "./preview/Preview";
 
 import Form from "./Form/Form";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -63,6 +64,10 @@ function App() {
   return (
     <div className="container">
       <Header iconLaptop={iconLaptop} logoAdalab={logoAdalab} />
+
+      <Link to="/" className="btnBack">
+        Volver a inicio
+      </Link>
 
       <main className="main">
         <Hero />
