@@ -2,7 +2,7 @@ import "../styles/App.scss";
 import "../images/icons/github.svg";
 import iconLaptop from "../images/laptop-code-solid.svg";
 import logoAdalab from "../images/adalab.png";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
 import Preview from "./preview/Preview";
@@ -24,6 +24,12 @@ function App() {
     image: "",
     photo: "",
   });
+  useEffect(() => {
+    const storedData = localStorage.getItem("formData");
+    if (storedData) {
+      setFormData(JSON.parse(storedData)); // convertimos de texto a objeto
+    }
+  }, []);
 
   const changePhoto = (uploadedPhoto) => {
     setFormData({
@@ -44,6 +50,7 @@ function App() {
         ...formData,
         [field]: value,
       });
+      localStorage.setItem("formData",JSON.stringify(setFormData));
     }
   };
   const handleSubmit = (event) => {
